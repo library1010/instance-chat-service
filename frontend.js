@@ -17,10 +17,12 @@ $(function() {
     }
 
     var connection = new WebSocket('ws:/127.0.0.1:1337');
-    connection.onopen = function() {
+    connection.onopen = startConnection;
+
+    function startConnection() {
         input.removeAttr('disabled');
         status.text('Choose name:');
-    };
+    }
 
     connection.onerror = function(error) {
         content.html($('<p>', {text: 'Sorry, but there\'s some problems with your connection or the server is down.'}));
@@ -80,7 +82,9 @@ $(function() {
         if (connection.readyState !== 1) {
             status.text('Error');
             input.attr('disabled', 'disabled').val('Unable to communicate with the WebSocket server.');
+            return;
         }
+        startConnection();
     }, 3000);
 
     function addMessage(author, message, color, dateTime) {
