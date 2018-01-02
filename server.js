@@ -23,7 +23,7 @@ function htmlEntities(str) {
         .replace(/"/g, '&quot;');
 }
 
-var color = ['red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange'];
+var colors = ['red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange'];
 colors.sort(function(a, b) {
     return Math.random() > 0.5;
 });
@@ -40,7 +40,7 @@ var server = http.createServer(function(request, response) {
 /**
 * WebSocker server
 */
-wsServer = new WebSocketServer({
+var wsServer = new WebSocketServer({
     httpServer: server
 }).on('request', function(request) {
     consoleMessage('Connection from origin' + request.origin);
