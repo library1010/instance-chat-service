@@ -34,7 +34,7 @@ colors.sort(function(a, b) {
 var server = http.createServer(function(request, response) {
     // Nothing to do
 }).listen(1337, function() {
-    consoleMessage('Server is listening on port ' + webSocketServerPort)
+    consoleMessage('Server is listening on port ' + webSocketServerPort);
 });
 
 /**
