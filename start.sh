@@ -1,5 +1,5 @@
 #!/bin/sh
 
 nohup node server.js &
-open chat.html
+open src/client/html/chat.html
 

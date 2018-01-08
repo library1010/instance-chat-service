@@ -2,7 +2,7 @@
 
 process.title = 'node-chat';
 
-var webSocketServerPort = 1337;
+var webSocketServerPort = 1336;
 
 // Import
 var WebSocketServer = require('websocket').server;
@@ -24,16 +24,12 @@ function htmlEntities(str) {
 }
 
 var colors = ['red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange'];
-colors.sort(function(a, b) {
-    return Math.random() > 0.5;
-});
+colors.sort((a, b) => Math.random() > 0.5);
 
 /**
 * HTTP servers
 */
-var server = http.createServer(function(request, response) {
-    // Nothing to do
-}).listen(1337, function() {
+var server = http.createServer().listen(webSocketServerPort, function() {
     consoleMessage('Server is listening on port ' + webSocketServerPort);
 });
 
